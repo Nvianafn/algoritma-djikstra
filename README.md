@@ -11,7 +11,6 @@ Berikut adalah contoh hasil akhir rute yang divisualisasikan dalam sebuah peta i
 ![image](https://github.com/user-attachments/assets/f53b90ab-e5d7-4ffc-829e-979426f9a215)
 
 
-*(Tips: Buka file HTML hasil program, ambil screenshot yang bagus, lalu upload ke folder project Anda di GitHub untuk menampilkannya di sini)*
 
 ## ✨ Fitur Utama
 
@@ -34,8 +33,8 @@ Untuk menjalankan proyek ini di komputer lokal Anda, ikuti langkah-langkah berik
 
 1.  **Clone Repository**
     ```bash
-    git clone [https://github.com/](https://github.com/)[USERNAME_ANDA]/[NAMA_REPO_ANDA].git
-    cd [NAMA_REPO_ANDA]
+    git clone https://github.com/Nvianafn/algoritma-djikstra.git
+    cd algoritma-djikstra
     ```
 
 2.  **Buat Virtual Environment (Sangat Direkomendasikan)**
@@ -54,7 +53,6 @@ Untuk menjalankan proyek ini di komputer lokal Anda, ikuti langkah-langkah berik
     ```bash
     pip install -r requirements.txt
     ```
-    *(Tips: Untuk membuat file `requirements.txt`, jalankan perintah `pip freeze > requirements.txt` di terminal setelah semua library terinstall)*
 
 4.  **Jalankan Skrip Python**
     ```bash
