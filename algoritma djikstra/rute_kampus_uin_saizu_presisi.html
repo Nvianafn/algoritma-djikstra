@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b27575839327735aa1bb39d676718ae5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                top: 10px; right: 10px; width: 200px; height: 90px; 
+                background-color: white; border:2px solid grey; z-index:9999; 
+                font-size:14px; padding: 10px">
+    <p><b>Informasi Rute</b></p>
+    <p>Total Jarak: <b>15.31 km</b></p>
+    <p>Algoritma: <b>Dijkstra</b></p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_b27575839327735aa1bb39d676718ae5" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b27575839327735aa1bb39d676718ae5 = L.map(
+                "map_b27575839327735aa1bb39d676718ae5",
+                {
+                    center: [-7.399169211708738, 109.2895500434575],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e9f1f015ff747f1db3187ac48c7c55a1 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e9f1f015ff747f1db3187ac48c7c55a1.addTo(map_b27575839327735aa1bb39d676718ae5);
+        
+    
+            var poly_line_e3db4ac30ac7aff6e1ce8cedc01cb9e4 = L.polyline(
+                [[-7.4102262, 109.2315057], [-7.4098246, 109.2315567], [-7.409407, 109.2316132], [-7.4089706, 109.2316648], [-7.4085159, 109.2317042], [-7.4080212, 109.2317632], [-7.407574, 109.2318248], [-7.4076052, 109.2323875], [-7.4076457, 109.2327607], [-7.4077194, 109.2334401], [-7.4080683, 109.2361826], [-7.40808, 109.2362665], [-7.4080922, 109.2363299], [-7.4087621, 109.2389411], [-7.4083945, 109.2390173], [-7.4081011, 109.239079], [-7.4078616, 109.2391294], [-7.4070333, 109.2392653], [-7.4069808, 109.2392729], [-7.4062761, 109.239386], [-7.4055684, 109.2395637], [-7.4054671, 109.2395882], [-7.4041173, 109.2399041], [-7.4042095, 109.2403776], [-7.4039724, 109.2410014], [-7.4038951, 109.2410163], [-7.4036485, 109.241059], [-7.4033426, 109.2410999], [-7.4030816, 109.2411409], [-7.4031298, 109.24169], [-7.4030949, 109.2416845], [-7.4028714, 109.2417033], [-7.4026321, 109.2419036], [-7.402374, 109.2420144], [-7.402098, 109.2421284], [-7.4018504, 109.2422593], [-7.401587, 109.2424008], [-7.4016159, 109.2426651], [-7.4016184, 109.2427099], [-7.4016955, 109.2432692], [-7.4014928, 109.2432727], [-7.4000533, 109.244028], [-7.4001602, 109.2450687], [-7.399226, 109.2450377], [-7.3982748, 109.2450031], [-7.3964015, 109.2448852], [-7.3957837, 109.2448631], [-7.3953438, 109.2448485], [-7.3950856, 109.2448399], [-7.3944575, 109.2447959], [-7.393843, 109.2447663], [-7.3936729, 109.2456598], [-7.3934906, 109.2466072], [-7.3934681, 109.2467649], [-7.3934597, 109.2468552], [-7.3934387, 109.247101], [-7.3933385, 109.2483307], [-7.3933162, 109.2483902], [-7.3927064, 109.2497329], [-7.3926932, 109.2497592], [-7.3925664, 109.2500995], [-7.3925597, 109.2501172], [-7.3924878, 109.2503237], [-7.3921898, 109.2511328], [-7.391586, 109.2530975], [-7.3913401, 109.2544362], [-7.3912952, 109.2550259], [-7.391222, 109.2559566], [-7.3911843, 109.2563912], [-7.3911378, 109.2570363], [-7.3911267, 109.2572901], [-7.3911271, 109.2582835], [-7.3917509, 109.2594362], [-7.3921167, 109.2601796], [-7.3921374, 109.2603404], [-7.3921219, 109.2612165], [-7.3920663, 109.261709], [-7.3919274, 109.2626492], [-7.3918937, 109.2628161], [-7.3913338, 109.2644036], [-7.3920276, 109.2646853], [-7.3920661, 109.2647034], [-7.3919265, 109.2650557], [-7.3918476, 109.2652474], [-7.3916245, 109.2658313], [-7.3916019, 109.265901], [-7.3913718, 109.2667767], [-7.3911763, 109.2674687], [-7.3910341, 109.2679703], [-7.3909689, 109.2682707], [-7.3909256, 109.2683997], [-7.3908465, 109.2685953], [-7.3907331, 109.2689119], [-7.3901483, 109.2702489], [-7.3900113, 109.2713325], [-7.3899946, 109.2713804], [-7.3898891, 109.27167], [-7.3889207, 109.2748549], [-7.3887843, 109.2756316], [-7.3887079, 109.2759579], [-7.3877331, 109.2787615], [-7.3890227, 109.2793508], [-7.3895039, 109.2795755], [-7.389359, 109.2799655], [-7.3893184, 109.2800827], [-7.3891275, 109.2808644], [-7.3891009, 109.2809844], [-7.3883608, 109.2820922], [-7.3882633, 109.2825233], [-7.3881845, 109.2830767], [-7.388158, 109.2834574], [-7.388157, 109.2838788], [-7.3881674, 109.2846716], [-7.3880669, 109.2855945], [-7.3880341, 109.2858305], [-7.3879003, 109.2867596], [-7.387741, 109.2884973], [-7.387547, 109.2909699], [-7.3874554, 109.2917223], [-7.3874425, 109.2917957], [-7.3873598, 109.2921733], [-7.3873018, 109.2924079], [-7.3870674, 109.2932106], [-7.3865401, 109.2947723], [-7.3864516, 109.2950921], [-7.386308, 109.2956433], [-7.3862561, 109.2959625], [-7.3860826, 109.2971045], [-7.3859642, 109.2978515], [-7.3858733, 109.2984533], [-7.3856957, 109.2994786], [-7.3856882, 109.2995185], [-7.3855918, 109.3000911], [-7.3853977, 109.3024943], [-7.3853461, 109.3047234], [-7.3844961, 109.3079461], [-7.3840577, 109.309165], [-7.3836603, 109.3103174], [-7.3835915, 109.3105169], [-7.3834798, 109.3108334], [-7.3832318, 109.3115649], [-7.3828387, 109.3127243], [-7.3822762, 109.3143638], [-7.3820205, 109.3149552], [-7.3819875, 109.3168221], [-7.3818313, 109.318129], [-7.3818166, 109.3182296], [-7.3822609, 109.319342], [-7.3826532, 109.3209453], [-7.3828021, 109.321799], [-7.3829907, 109.322941], [-7.3830821, 109.3234988], [-7.3838891, 109.3285065], [-7.3841168, 109.3299213], [-7.3841833, 109.3303116], [-7.3843214, 109.3311556], [-7.3843709, 109.3314582], [-7.3846289, 109.3329965], [-7.3848164, 109.3341431], [-7.3848523, 109.3343443], [-7.3849055, 109.3346836], [-7.3851073, 109.3359469], [-7.3851297, 109.3360455], [-7.3853544, 109.3375166], [-7.3854129, 109.3378821], [-7.3854402, 109.3380806], [-7.3854801, 109.338332], [-7.38552, 109.3385915], [-7.3855559, 109.3388128], [-7.385711, 109.3397691], [-7.3857521, 109.3400225], [-7.3858983, 109.3408174], [-7.3862418, 109.3428696], [-7.3864746, 109.3442557], [-7.3864845, 109.3442936], [-7.3866047, 109.3450703], [-7.3868332, 109.3465332], [-7.387286, 109.346542], [-7.3879078, 109.3466666], [-7.3883169, 109.3466637], [-7.3883032, 109.3467354], [-7.3881866, 109.3470559]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_b27575839327735aa1bb39d676718ae5);
+        
+    
+        var popup_687d4ab2127da84df1e9e995246e25bb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aaf27439a9aa0c591b2de84df51d73fa = $(`<div id="html_aaf27439a9aa0c591b2de84df51d73fa" style="width: 100.0%; height: 100.0%;">Rute terpendek: 15.31 km</div>`)[0];
+                popup_687d4ab2127da84df1e9e995246e25bb.setContent(html_aaf27439a9aa0c591b2de84df51d73fa);
+            
+        
+
+        poly_line_e3db4ac30ac7aff6e1ce8cedc01cb9e4.bindPopup(popup_687d4ab2127da84df1e9e995246e25bb)
+        ;
+
+        
+    
+    
+            var marker_839f458c47d46c127d30ce844c936475 = L.marker(
+                [-7.410320408090181, 109.231287179008],
+                {
+}
+            ).addTo(map_b27575839327735aa1bb39d676718ae5);
+        
+    
+            var icon_5c938ae6050cf60fa75a361dc0f657f3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "play",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2230dd708d3bb5147e1211d024dc69bb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b02af8139ab60de469c671db04438d2d = $(`<div id="html_b02af8139ab60de469c671db04438d2d" style="width: 100.0%; height: 100.0%;">Kampus 1 UIN Saizu (Awal)<br>Koordinat: (-7.410320408090181, 109.231287179008)</div>`)[0];
+                popup_2230dd708d3bb5147e1211d024dc69bb.setContent(html_b02af8139ab60de469c671db04438d2d);
+            
+        
+
+        marker_839f458c47d46c127d30ce844c936475.bindPopup(popup_2230dd708d3bb5147e1211d024dc69bb)
+        ;
+
+        
+    
+    
+                marker_839f458c47d46c127d30ce844c936475.setIcon(icon_5c938ae6050cf60fa75a361dc0f657f3);
+            
+    
+            var marker_0c1718984a99cec894fb5cd6e6d4a23a = L.marker(
+                [-7.388018015327295, 109.34781290790698],
+                {
+}
+            ).addTo(map_b27575839327735aa1bb39d676718ae5);
+        
+    
+            var icon_6818af5fc3c36e3fe9b7571b54fba21d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "stop",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_906f7d444718532af7ca85e58254020b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_956bba91f496c1ff87db50a25926e8e1 = $(`<div id="html_956bba91f496c1ff87db50a25926e8e1" style="width: 100.0%; height: 100.0%;">Kampus 2 UIN Saizu (Tujuan)<br>Koordinat: (-7.388018015327295, 109.34781290790698)<br>Jarak: 15.31 km</div>`)[0];
+                popup_906f7d444718532af7ca85e58254020b.setContent(html_956bba91f496c1ff87db50a25926e8e1);
+            
+        
+
+        marker_0c1718984a99cec894fb5cd6e6d4a23a.bindPopup(popup_906f7d444718532af7ca85e58254020b)
+        ;
+
+        
+    
+    
+                marker_0c1718984a99cec894fb5cd6e6d4a23a.setIcon(icon_6818af5fc3c36e3fe9b7571b54fba21d);
+            
+</script>
+</html>
