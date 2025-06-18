@@ -8,7 +8,8 @@ Proyek ini adalah implementasi dari algoritma pathfinding (seperti Dijkstra) pad
 
 Berikut adalah contoh hasil akhir rute yang divisualisasikan dalam sebuah peta interaktif.
 
-[Sisipkan screenshot dari file `rute_kampus_uin_saizu_presisi.html` di sini]
+![image](https://github.com/user-attachments/assets/f53b90ab-e5d7-4ffc-829e-979426f9a215)
+
 
 *(Tips: Buka file HTML hasil program, ambil screenshot yang bagus, lalu upload ke folder project Anda di GitHub untuk menampilkannya di sini)*
 
